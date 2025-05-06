@@ -38,7 +38,6 @@ def read_conllu(file_path):
     return sentences
 
 
-
 def clean_text(text):
     """Helper function to clean the sentences before and after processing."""
     text = re.sub(r'"', '', text)  # Removes citation marks where whitespace cannot be handled properly  
