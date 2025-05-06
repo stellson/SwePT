@@ -18,13 +18,25 @@ def read_conllu(file_path):
                 if len(columns) > 6:
                     current_sentence.append(columns)  # Store token information
             elif not line and current_sentence:
-                sentences.append((current_text, current_sentence))  # Store full sentence
-                current_sentence = []
+                # If current_text is empty (e.g., no "# text =" line), build it manually
+                if not current_text:
+                    tokens = [tok[1] for tok in current_sentence if re.match(r'^\d+$', tok[0])]
+                    current_text = " ".join(tokens)
 
+                sentences.append((current_text, current_sentence))
+                current_sentence = []
+                current_text = ""  # Reset for next sentence
+
+    # Handle final sentence if file doesn't end with a blank line
     if current_sentence:
+        if not current_text:
+            tokens = [tok[1] for tok in current_sentence if re.match(r'^\d+$', tok[0])]
+            current_text = " ".join(tokens)
+
         sentences.append((current_text, current_sentence))
-    
+
     return sentences
+
 
 
 def clean_text(text):
@@ -72,8 +84,8 @@ def process_conllu_to_csv(input_file, output_file, create_mp, generate, n_pairs=
 
                 if sentence_pair not in seen_sentences and text != ungrammatical_text:
                     seen_sentences.add(sentence_pair)
-                    writer.writerow([text, ungrammatical_text])
-                    pair_count += 1
+                    writer.writerow([text, ungrammatical_text]) 
+                    pair_count += 1 
 
 if __name__ == "__main__":
     
@@ -93,7 +105,7 @@ if __name__ == "__main__":
     TENSE = process_conllu_to_csv(input_data, "TENSE.csv", create_tense_mp, generate=True, n_pairs=50)
     ATTR = process_conllu_to_csv(input_data, "ATTR.csv", create_attr_mp, generate=True, n_pairs=50)
     PRED_a = process_conllu_to_csv(input_data, "PRED_a.csv", create_pred_a_mp, generate=True, n_pairs=50)
-    PRED_b = process_conllu_to_csv(input_data, "PRED_b.csv", create_pred_b_mp, generate=True, n_pairs=60)
+    PRED_b = process_conllu_to_csv(input_data, "PRED_b.csv", create_pred_b_mp, generate=True, n_pairs=50)
     INV = process_conllu_to_csv(input_data, "INV.csv", create_inv_mp, generate=True, n_pairs=50)
     NEGV = process_conllu_to_csv(input_data, "NEGV.csv", create_negv_mp, generate=True, n_pairs=50)
     INQ = process_conllu_to_csv(input_data, "INQ.csv", create_inq_mp, generate=True, n_pairs=50)
