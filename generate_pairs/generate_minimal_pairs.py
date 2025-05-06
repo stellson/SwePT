@@ -21,7 +21,7 @@ def read_conllu(file_path):
                 sentences.append((current_text, current_sentence))  # Store full sentence
                 current_sentence = []
 
-    if current_sentence and len(sentences) <= 50000:  # REMOVE THIS LINE AFTER!!!
+    if current_sentence:
         sentences.append((current_text, current_sentence))
     
     return sentences
