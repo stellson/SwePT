@@ -39,7 +39,19 @@ def clean_text(text):
 
 
 def process_conllu_to_csv(input_file, output_file, create_mp, generate, n_pairs=None):
-    """Processes the CoNLL-U file and writes grammatical and ungrammatical sentences to a CSV file, removing duplicates."""
+    """
+    Processes the CoNLL-U file and writes grammatical and ungrammatical sentences to a CSV file, removing duplicates.
+    
+    Args:
+        input_file (conllu): A conllu file in which to search for linguistic structures
+        output_file (csv): A file to which the minimal pairs are written
+        create_mp: The function that identifies the target structure and generates the ungrammatical sentence
+        generate (True or False): If True, minimal pairs will be written to file
+        n_pairs (None or int): Specifies the number of desired pairs per linguistic structure set. If None, all pairs matched will be returned.
+
+    Returns:
+        Writes minimal pairs to a csv file.
+    """
     sentences = read_conllu(input_file)
     seen_sentences = set()
     pair_count = 0
@@ -61,11 +73,11 @@ def process_conllu_to_csv(input_file, output_file, create_mp, generate, n_pairs=
                 if sentence_pair not in seen_sentences and text != ungrammatical_text:
                     seen_sentences.add(sentence_pair)
                     writer.writerow([text, ungrammatical_text])
-                    pair_count += 1  # Increment count
+                    pair_count += 1
 
 if __name__ == "__main__":
     
-    input_data = "../500k_conllu.conllu"  # Input must be in CoNLL-U format
+    input_data = "dataset.conllu"  # Input must be in CoNLL-U format
 
     from parse_conllu_svo import create_svo_mp
     from parse_conllu_plural import create_plural_mp
