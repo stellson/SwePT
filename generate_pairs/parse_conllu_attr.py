@@ -7,7 +7,7 @@ def create_attr_mp(sentence_data, generate=False):
     """Finds adjectives with attributive agreement. If found and generate=False, it returns True.
     If found and generate=False, it returns the sentence with the adjective replaced by its lemma."""
     words = {int(tok[0]): tok for tok in sentence_data if re.match(r'^\d+$', tok[0])}
-    modified_words = words.copy()  # Create a copy to modify
+    modified_words = words.copy() 
 
     found_valid_adjective = False
     for token in sentence_data:
