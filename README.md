@@ -59,11 +59,12 @@ The table below displays selected examples of minimal pairs (a grammatical sente
 
 ## Dataset Creation
 
-The grammatical sentences of each minimal pair were extracted from the Swedish Talbanken and LinES treebanks from Universal Dependencies corpora. LinES contains 4,564 annotated trees and 79,812 tokens worth of data translated from English, including
-literary works, online help manuals and the Swedish part of the Europarl corpus. Talbanken consists of roughly 6,000 annotated sentences and 95,000 tokens from a variety of informative text sources including newspaper articles and textbooks. SwePT was constructed with an automated approach similar to that of RuBLiMP[^2]. The target linguistic structures were identified through a processing pipeline consisting of nine rule-based Python scripts targeting each PT structure, respectively. The scripts were written by performing several manual iterations of systematically relaxing the heuristics and reviewing the output.
+The grammatical sentences of each minimal pair were extracted from the Swedish Talbanken and LinES treebanks from Universal Dependencies corpora. The target linguistic structures were identified through a processing pipeline consisting of [nine rule-based Python scripts](https://github.com/stellson/SwePT/tree/main/generate_pairs) targeting each PT structure, respectively. The scripts were written by performing several manual iterations of systematically relaxing the heuristics and reviewing the output.
 
-The pipeline performs three main consecutive steps: 1) identifying and extracting sentences containing the PT structures from the source CoNLL-U files through a dependency tree search, 2) duplicating the sentences to form the minimal pairs, and 3) altering the duplicates into ungrammatical sentences with respect to their target
-structures. The first step of this process was also used for labeling the training data. 
+The pipeline performs three main consecutive steps: 
+1. identifying and extracting sentences containing the PT structures from the source CoNLL-U files through a dependency tree search (also used for labeling the training data),
+2. duplicating the sentences to form the minimal pairs,
+3. altering the duplicates into ungrammatical sentences with respect to their target structures.
 
 To form the minimal pairs of the syntactic structures (SVO, INV, INQ and NEGV), relevant grammatical constituents and arguments were identified and had their positions switched with respect to the target structure. The alteration of the morphological structures (PLUR, TENSE, ATTR and PRED_a) was performed by converting the conjugated target structures into their neutral form (lemma). The alteration process for the PRED_b minimal pairs was performed manually in order to minimize errors, due to the small amount of extracted sentences and the complexity of the alteration task.
 
