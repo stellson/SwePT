@@ -68,7 +68,7 @@ The pipeline performs three main consecutive steps:
 
 To form the minimal pairs of the syntactic structures (SVO, INV, INQ and NEGV), relevant grammatical constituents and arguments were identified and had their positions switched with respect to the target structure. The alteration of the morphological structures (PLUR, TENSE, ATTR and PRED_a) was performed by converting the conjugated target structures into their neutral form (lemma). The alteration process for the PRED_b minimal pairs was performed manually in order to minimize errors, due to the small amount of extracted sentences and the complexity of the alteration task.
 
-The whole process is described in more detail in my [Master's Thesis](https://github.com/stellson/SwePT/blob/main/SwePT_paper.pdf).
+The whole process is described in more detail in my [Master's Thesis](https://www.diva-portal.org/smash/get/diva2:1975439/FULLTEXT01.pdf).
 
 
 [^1]: Pienemann, M. (1998). Language processing and second language development: Processability theory (Vol. 15). John Benjamins Publishing.
