@@ -1,6 +1,6 @@
 # SwePT: a Swedish Processability Theory Minimal Pair Dataset
 
-SwePT is a minimal pair dataset created for the purpose of evaluating the development of grammatical knowledge in LLMs, specifically with respect to the stages of grammar acquisition as theorized in Processability Theory [^1]. SwePT consists of nine separate datasets containing 8442 minimal pairs in total, targeting Swedish syntactic and morphological structures that represent four stages of the Swedish Processability Theory developmental hierarchy. This repository contains the [minimal pair dataset SwePT](https://github.com/stellson/SwePT/tree/main/SwePT) as well as the [scripts](https://github.com/stellson/SwePT/tree/main/generate_pairs) used to identify the grammatical structures and create the minimal pairs. 
+SwePT is a minimal pair dataset created for the purpose of evaluating the development of grammatical knowledge in LLMs, specifically with respect to the stages of grammar acquisition as theorized in Processability Theory [^1]. SwePT consists of nine separate datasets containing 8442 minimal pairs in total, targeting Swedish syntactic and morphological structures that represent four stages of the Swedish Processability Theory developmental hierarchy. This repository contains the minimal pair dataset [SwePT](https://github.com/stellson/SwePT/tree/main/SwePT) as well as the [scripts](https://github.com/stellson/SwePT/tree/main/generate_pairs) used to identify the grammatical structures and create the minimal pairs. 
 
 ## Repository Content
 
@@ -68,7 +68,7 @@ The pipeline performs three main consecutive steps:
 
 To form the minimal pairs of the syntactic structures (SVO, INV, INQ and NEGV), relevant grammatical constituents and arguments were identified and had their positions switched with respect to the target structure. The alteration of the morphological structures (PLUR, TENSE, ATTR and PRED_a) was performed by converting the conjugated target structures into their neutral form (lemma). The alteration process for the PRED_b minimal pairs was performed manually in order to minimize errors, due to the small amount of extracted sentences and the complexity of the alteration task.
 
-The whole process is described in more detail in my [Master's Thesis](https://www.diva-portal.org/smash/get/diva2:1975439/FULLTEXT01.pdf).
+The whole process is described in more detail in [my dissertation](https://www.diva-portal.org/smash/get/diva2:1975439/FULLTEXT01.pdf).
 
 
 [^1]: Pienemann, M. (1998). Language processing and second language development: Processability theory (Vol. 15). John Benjamins Publishing.
